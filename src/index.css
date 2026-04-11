@@ -1,0 +1,846 @@
+/* ============================================
+   CSS CUSTOM PROPERTIES — LIGHT & DARK THEMES
+   ============================================ */
+:root,
+[data-theme='light'] {
+  --bg-page: #f0f4f8;
+  --bg-card: #ffffff;
+  --bg-header: linear-gradient(90deg, #2563eb, #4f46e5);
+  --bg-footer: #0f172a;
+  --bg-input: #f9fafb;
+  --bg-input-focus: #ffffff;
+  --bg-comment: #f8fafc;
+  --bg-success: #f0fdf4;
+
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-header: #ffffff;
+  --text-footer: #e5e7eb;
+  --text-link: #2563eb;
+  --text-link-hover: #1d4ed8;
+
+  --border-color: #e5e7eb;
+  --border-input: #d1d5db;
+  --border-focus: #2563eb;
+  --border-error: #ef4444;
+
+  --accent-category-bg: #ede9fe;
+  --accent-category-text: #6d28d9;
+  --accent-hero-tag-bg: #dbeafe;
+  --accent-hero-tag-text: #1d4ed8;
+  --accent-like-bg: #fee2e2;
+  --accent-like-text: #b91c1c;
+  --accent-submit-bg: #fbbf24;
+  --accent-submit-text: #111827;
+  --accent-success: #16a34a;
+
+  --shadow-card: 0 10px 25px rgba(15, 23, 42, 0.08);
+  --shadow-header: 0 8px 20px rgba(37, 99, 235, 0.18);
+
+  --body-bg-gradient: linear-gradient(180deg, #eef2ff 0%, #f8fafc 35%, #f0f4f8 100%);
+}
+
+[data-theme='dark'] {
+  --bg-page: #0f172a;
+  --bg-card: #1e293b;
+  --bg-header: linear-gradient(90deg, #1e3a8a, #3730a3);
+  --bg-footer: #020617;
+  --bg-input: #0f172a;
+  --bg-input-focus: #1e293b;
+  --bg-comment: #1e293b;
+  --bg-success: #052e16;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-header: #ffffff;
+  --text-footer: #94a3b8;
+  --text-link: #60a5fa;
+  --text-link-hover: #93c5fd;
+
+  --border-color: #334155;
+  --border-input: #475569;
+  --border-focus: #60a5fa;
+  --border-error: #f87171;
+
+  --accent-category-bg: #2e1065;
+  --accent-category-text: #c4b5fd;
+  --accent-hero-tag-bg: #1e3a8a;
+  --accent-hero-tag-text: #93c5fd;
+  --accent-like-bg: #450a0a;
+  --accent-like-text: #fca5a5;
+  --accent-submit-bg: #d97706;
+  --accent-submit-text: #111827;
+  --accent-success: #4ade80;
+
+  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.4);
+  --shadow-header: 0 8px 20px rgba(0, 0, 0, 0.35);
+
+  --body-bg-gradient: linear-gradient(180deg, #0f172a 0%, #0f172a 100%);
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+:root {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--body-bg-gradient);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+textarea,
+input,
+a {
+  font: inherit;
+}
+
+a {
+  color: var(--text-link);
+}
+
+a:hover {
+  color: var(--text-link-hover);
+}
+
+/* ============================================
+   LAYOUT SHELL
+   ============================================ */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   HEADER / NAVBAR
+   ============================================ */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 2rem;
+  background: var(--bg-header);
+  color: var(--text-header);
+  box-shadow: var(--shadow-header);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-mark {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.18);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.brand-block h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.1rem;
+  font-family: 'Georgia', serif;
+}
+
+.brand-block p {
+  opacity: 0.85;
+  font-size: 0.88rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.nav-active {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ============================================
+   THEME TOGGLE BUTTON
+   ============================================ */
+.theme-toggle {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.88rem;
+  padding: 0.45rem 1rem;
+  transition: background 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   MAIN CONTENT AREA
+   ============================================ */
+.main-content {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 2rem auto 3rem;
+  flex: 1;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-tag {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  background: var(--accent-hero-tag-bg);
+  color: var(--accent-hero-tag-text);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.65rem;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.hero p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 60ch;
+}
+
+/* ============================================
+   BLOG LIST
+   ============================================ */
+.blog-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* ============================================
+   POST CARD (shared)
+   ============================================ */
+.post-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card--preview:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme='dark'] .post-card--preview:hover {
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5);
+}
+
+.post-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.post-category {
+  display: inline-block;
+  background: var(--accent-category-bg);
+  color: var(--accent-category-text);
+  font-weight: 700;
+  font-size: 0.82rem;
+  font-family: 'Arial', sans-serif;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.post-read-time {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: 'Arial', sans-serif;
+}
+
+.post-card h2,
+.post-full-title {
+  font-size: 1.7rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.post-full-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.post-content {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.post-meta strong {
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   FULL POST BODY
+   ============================================ */
+.post-body {
+  margin: 1.5rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.post-body p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* ============================================
+   READ MORE LINK
+   ============================================ */
+.read-more-link {
+  display: inline-block;
+  color: var(--text-link);
+  font-weight: 700;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.read-more-link:hover {
+  color: var(--text-link-hover);
+  transform: translateX(3px);
+}
+
+/* ============================================
+   BACK LINK
+   ============================================ */
+.back-link {
+  display: inline-block;
+  color: var(--text-link);
+  font-weight: 600;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-bottom: 1.25rem;
+  transition: color 0.15s ease;
+}
+
+.back-link:hover {
+  color: var(--text-link-hover);
+  text-decoration: underline;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.like-button,
+.submit-button {
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: 'Arial', sans-serif;
+  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+}
+
+.like-button {
+  background: var(--accent-like-bg);
+  color: var(--accent-like-text);
+  padding: 0.65rem 1.1rem;
+  font-size: 0.9rem;
+}
+
+.submit-button {
+  background: var(--accent-submit-bg);
+  color: var(--accent-submit-text);
+  padding: 0.8rem 1.5rem;
+  font-size: 0.95rem;
+  width: fit-content;
+}
+
+.like-button:hover,
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ============================================
+   COMMENT SECTION
+   ============================================ */
+.comment-section {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.comment-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.no-comments {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--bg-comment);
+  border-radius: 10px;
+  border: 1px dashed var(--border-color);
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.comment-item {
+  background: var(--bg-comment);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border-color);
+}
+
+.comment-author {
+  font-weight: 700;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9rem;
+  color: var(--accent-category-text);
+  margin-bottom: 0.35rem;
+}
+
+.comment-text {
+  color: var(--text-secondary);
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+/* ============================================
+   COMMENT FORM
+   ============================================ */
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.comment-form-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 0.25rem;
+}
+
+/* ============================================
+   FORM GROUPS (shared: comment + contact)
+   ============================================ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: 'Arial', sans-serif;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  border: 1.5px solid var(--border-input);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 0.97rem;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  background: var(--bg-input-focus);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+[data-theme='dark'] .form-group input:focus,
+[data-theme='dark'] .form-group textarea:focus {
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+}
+
+.form-group input.input-error,
+.form-group textarea.input-error {
+  border-color: var(--border-error);
+}
+
+.error-msg {
+  font-size: 0.82rem;
+  color: var(--border-error);
+  font-family: 'Arial', sans-serif;
+}
+
+/* ============================================
+   CONTACT PAGE
+   ============================================ */
+.contact-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-color);
+  max-width: 640px;
+  transition: background 0.3s ease;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--bg-success);
+  color: var(--accent-success);
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--accent-success);
+}
+
+.contact-success h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.contact-success p {
+  color: var(--text-secondary);
+  max-width: 40ch;
+  line-height: 1.6;
+}
+
+/* ============================================
+   NOT FOUND
+   ============================================ */
+.not-found {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.not-found h2 {
+  font-size: 2rem;
+  color: var(--text-primary);
+}
+
+.not-found p {
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  text-align: center;
+  padding: 1.25rem;
+  background: var(--bg-footer);
+  color: var(--text-footer);
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .nav-links {
+    gap: 0.5rem;
+  }
+
+  .post-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .hero h1,
+  .post-full-title {
+    font-size: 1.7rem;
+  }
+
+  .post-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .contact-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    margin: 1.25rem auto 2rem;
+  }
+
+  .hero,
+  .post-card,
+  .comment-section,
+  .contact-card {
+    padding: 1.25rem;
+    border-radius: 14px;
+  }
+}
+
+/* ============================================
+   LOADING STATE & SPINNER
+   ============================================ */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  font-family: 'Arial', sans-serif;
+}
+
+.loading-state--small {
+  padding: 1.5rem 1rem;
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--text-link);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+.spinner--small {
+  width: 28px;
+  height: 28px;
+  border-width: 3px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   ERROR BANNER
+   ============================================ */
+.error-banner {
+  background: #fef2f2;
+  border: 1.5px solid var(--border-error);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  color: #b91c1c;
+  font-family: 'Arial', sans-serif;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+[data-theme='dark'] .error-banner {
+  background: #450a0a;
+  color: #fca5a5;
+}
+
+/* ============================================
+   AUTHOR CARD
+   ============================================ */
+.author-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-comment);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.author-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--bg-header);
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: 'Arial', sans-serif;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.author-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-family: 'Arial', sans-serif;
+}
+
+.author-email {
+  font-size: 0.875rem;
+  color: var(--text-link);
+  font-family: 'Arial', sans-serif;
+}
+
+.author-email a {
+  color: inherit;
+}
+
+.author-meta {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-family: 'Arial', sans-serif;
+}
+
+/* ============================================
+   COMMENT EMAIL
+   ============================================ */
+.comment-email {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-family: 'Arial', sans-serif;
+  margin-top: -0.25rem;
+}
