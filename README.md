@@ -69,6 +69,8 @@ react-blog-app/
 
 ---
 
+## Author
+
 **Ziona Agyemang**  
 UI/UX Designer & Developer · HCI Student at UNC Charlotte  
 [github.com/ziiodyne](https://github.com/ziiodyne) · [linkedin.com/in/ziona-agyemang-275603250](https://www.linkedin.com/in/ziona-agyemang-275603250/)
